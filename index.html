@@ -133,20 +133,22 @@ function showQuestion(){
     let q = questions[current].q;
     let i = 0;
 
-    document.getElementById("question").innerText = "";
+    const el = document.getElementById("question");
 
-    let typing = setInterval(()=>{
+    el.textContent = "";
 
-        document.getElementById("question").innerText += q[i];
+    let typing = setInterval(() => {
+
+        el.textContent = q.substring(0, i);
+
         i++;
 
-        if(i >= q.length){
+        if(i > q.length){
             clearInterval(typing);
         }
 
-    },40);
+    }, 35);
 }
-
 function confettiExplosion(){
     confetti({
         particleCount: 120,
