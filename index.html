@@ -112,7 +112,7 @@ const questions = [
 },
 {
     q: "O que estava gravado nas primeiras alianças?",
-    a: "Sol e lua"
+    a: "sol e lua"
 },
 {
     q: "Onde tiramos nossa primeira foto juntos?",
@@ -160,7 +160,8 @@ function checkAnswer(){
     let user = document.getElementById("answer").value.trim().toLowerCase();
     let correct = questions[current].a.toLowerCase();
 
-    if(user !== ""){
+    // ✔ CORREÇÃO PRINCIPAL: aceita variações da resposta
+    if(user.includes(correct)){
 
         confettiExplosion();
 
@@ -184,8 +185,9 @@ function checkAnswer(){
         },1200);
 
     } else {
+
         document.getElementById("typing").innerText =
-        "Digite algo 😄❤️";
+        "❌ Hmmm... tenta lembrar melhor ❤️";
     }
 }
 
